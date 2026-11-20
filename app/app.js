@@ -567,7 +567,7 @@ function profilHTML() {
   return head('👤 Profil & badges') + `<div class="sheet-body"><div class="stats" style="gap:10px"><div class="stat" style="background:var(--sp-s);color:var(--ink);border-color:var(--line)"><b>${read}</b>fiches lues</div><div class="stat" style="background:var(--sp-s);color:var(--ink);border-color:var(--line)"><b>${prayed}</b>sujets priés</div><div class="stat" style="background:var(--sp-s);color:var(--ink);border-color:var(--line)"><b>${Object.keys(PR.quiz).length}</b>quiz terminés</div></div>
   <section class="sec"><h3>Mon prénom</h3><input type="text" id="p-name" value="${esc(S.name)}" maxlength="40" placeholder="Prénom (pour Élan Famille)"><p class="hint">Aucune donnée personnelle n'est envoyée au cloud, sauf ton carnet et ta progression si tu actives la synchronisation.</p></section>
   <section class="sec"><h3>Badges éducatifs</h3>${b.map(x => `<div class="chk ${x[1] ? 'on' : ''}" style="cursor:default"><span><strong>${esc(x[0])}</strong> — ${esc(x[2])}</span></div>`).join('')}<p class="hint">Les badges valorisent la régularité, l'apprentissage et la créativité. La foi et la prière ne sont jamais notées.</p></section>
-  <div class="actions"><button class="btn" data-act="open-sync">☁ Synchronisation & sauvegardes</button>${deferredInstall ? '<button class="btn ghost" data-act="install">⬇ Installer l\'application</button>' : ''}</div></div>`;
+  <div class="actions">${isAdmin() ? '<button class="btn" data-act="open-sync">☁ Synchronisation & sauvegardes</button>' : ''}${deferredInstall ? '<button class="btn ghost" data-act="install">⬇ Installer l\'application</button>' : ''}</div></div>`;
 }
 function cardForm(c, sp) {
   const subs = [...new Set(items(sp).map(i => i.sub).filter(Boolean))].slice(0, 60);
@@ -736,7 +736,7 @@ const sbOn = () => !!(SY.url && SY.key);
 function setStatus(s) {
   status = (!navigator.onLine) ? 'offline' : s;
   const p = $('#sync-pill'); if (!p) return;
-  p.hidden = !sbOn(); // pastille utile seulement si la synchronisation est activée
+  p.hidden = !(isAdmin() && sbOn()); // pastille utile seulement si la synchronisation est activée
   p.dataset.st = status; $('#sync-label').textContent = STL[status]; p.title = lastErr || '';
   const sl = $('#sync-state'); if (sl) sl.textContent = STL[status] + (SY.last ? ' · dernière synchro ' + new Date(SY.last).toLocaleTimeString('fr-FR') : '');
 }
@@ -835,7 +835,7 @@ function syncHTML() {
   <section class="sec"><h3>Points de restauration locaux</h3><div class="actions"><button class="btn ghost" data-act="snap">Créer un point maintenant</button></div>
   ${snaps.length ? snaps.map(s => `<div class="note"><strong>${esc(s.label)}</strong> <span class="hint">${new Date(s.t).toLocaleString('fr-FR')}</span><div class="actions" style="margin-top:4px"><button class="btn ghost sm" data-act="snap-restore" data-id="${s.id}">Restaurer</button><button class="btn danger sm" data-act="snap-del" data-id="${s.id}">Supprimer</button></div></div>`).join('') : '<p class="hint">Aucun point de restauration.</p>'}</section></div>`;
 }
-function openSync() { openModal(syncHTML()); setStatus(status); }
+function openSync() { if (!isAdmin()) return; /* interface publique : fenêtre de synchro bloquée */ openModal(syncHTML()); setStatus(status); }
 async function authEmail(signup) {
   const email = $('#sb-mail').value.trim(), pw = $('#sb-pw').value;
   if (!sbOn()) return toast('Renseigne d\'abord l\'URL et la clé Supabase.');

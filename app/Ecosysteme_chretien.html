@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr" data-text="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Écosystème Chrétien — Portail Biblique & Spirituel</title>
+<meta name="description" content="Plateforme chrétienne intergénérationnelle : Bible, prière, famille, formations et ressources pour grandir dans la foi.">
+<meta name="theme-color" content="#0B1220">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta property="og:image" content="icons/banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-space="P1">
+<div class="shell">
+  <aside class="side" id="side" aria-label="Navigation"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" data-act="menu" aria-label="Ouvrir le menu">☰</button>
+      <div class="navb" role="group" aria-label="Navigation"><button id="nav-back" data-act="nav-back" aria-label="Retour" title="Retour" disabled>←<span class="t">Retour</span></button><button id="nav-fwd" data-act="nav-fwd" aria-label="Page suivante" title="Page suivante" disabled><span class="t">Suivant</span>→</button></div>
+      <div class="crumb" id="crumb"></div>
+      <div class="sz" role="group" aria-label="Taille du texte">
+        <button data-act="size" data-v="0" aria-label="Texte normal">A</button>
+        <button data-act="size" data-v="1" aria-label="Texte grand">A+</button>
+        <button data-act="size" data-v="2" aria-label="Texte très grand">A++</button>
+      </div>
+      <button class="pill" id="sync-pill" data-act="open-sync" data-st="none" aria-live="polite"><i class="dot"></i><span class="lbl" id="sync-label">Mode local</span></button>
+    </header>
+    <main id="app" tabindex="-1"><noscript><p>Cette application nécessite JavaScript.</p></noscript></main>
+    <footer>Écosystème Chrétien · Textes bibliques : Louis Segond 1910 · Vos données personnelles restent locales sauf activation volontaire de la synchronisation. · <button type="button" class="flink" data-act="about">À propos &amp; Contact</button></footer>
+  </div>
+</div>
+<div class="scrim" data-act="menu"></div>
+<nav class="bottom" id="bottom" aria-label="Navigation principale"></nav>
+<div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="sketches.js"></script>
+<script src="slams.js"></script>
+<script src="jeux.js"></script>
+<script src="about.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

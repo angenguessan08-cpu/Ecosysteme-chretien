@@ -1,0 +1,21 @@
+{
+  "titre": "Actualités & Sensibilisation Chrétienne",
+  "maj": "2026-11-19",
+  "note": "Modifie ce fichier (ou indique une autre adresse dans l'application) pour actualiser les messages. Chaque entrée : categorie, titre, texte, verset (facultatif), lien (facultatif).",
+  "items": [
+    { "categorie": "Foi au quotidien", "titre": "Commencer la journée par la Parole", "texte": "Quelques minutes de lecture et de prière avant d'ouvrir le téléphone changent le ton de toute la journée. Choisis un passage court, note une phrase à retenir et une action à poser.", "verset": "Psaume 119:105" },
+    { "categorie": "Foi au quotidien", "titre": "Prier sans cesse, concrètement", "texte": "Relie la prière à des moments précis : au réveil, avant le repas, dans les transports, avant de dormir. Une prière courte et sincère vaut mieux qu'une longue prière irrégulière.", "verset": "1 Thessaloniciens 5:17" },
+    { "categorie": "Foi au quotidien", "titre": "Pardonner pour avancer", "texte": "Le pardon n'excuse pas le mal, il libère le cœur. Nomme l'offense devant Dieu, remets-la-lui, puis demande la grâce d'agir avec bonté.", "verset": "Éphésiens 4:32" },
+    { "categorie": "Jeunesse", "titre": "Garder son cœur à l'ère des réseaux", "texte": "Ce que nous regardons et partageons forme nos pensées. Fais le tri : abonnements, contenus, horaires d'écran. Remplace une heure de défilement par la lecture, le sport ou un service rendu.", "verset": "Philippiens 4:8" },
+    { "categorie": "Jeunesse", "titre": "Des amitiés qui font grandir", "texte": "Cherche des amis qui t'encouragent à aimer Dieu et à bien agir. Une bonne amitié est honnête, respectueuse et ne te pousse jamais à désobéir à ta conscience.", "verset": "Proverbes 13:20" },
+    { "categorie": "Jeunesse", "titre": "Études et vocation : travailler pour le Seigneur", "texte": "Ton orientation n'est pas un hasard sans importance : prie, écoute les conseils, apprends un métier avec sérieux. La fidélité dans les petites choses prépare les grandes responsabilités.", "verset": "Colossiens 3:23" },
+    { "categorie": "Famille", "titre": "Le culte familial : vingt minutes qui comptent", "texte": "Un chant, un passage biblique, une question simple, un temps de prière pour chaque membre de la famille. La régularité compte plus que la durée.", "verset": "Deutéronome 6:6-7" },
+    { "categorie": "Famille", "titre": "Éduquer sans humilier", "texte": "Corriger avec fermeté et douceur, expliquer les règles, demander pardon à ses enfants quand on se trompe. Un foyer où l'on dialogue protège les enfants de bien des dangers.", "verset": "Éphésiens 6:4" },
+    { "categorie": "Famille", "titre": "Couples : prier ensemble", "texte": "Même cinq minutes de prière à deux chaque jour renforcent la confiance. Parlez de vos soucis avant qu'ils ne deviennent des murs.", "verset": "Ecclésiaste 4:9-10" },
+    { "categorie": "Vie de l'Église", "titre": "Rester attaché à l'assemblée", "texte": "La foi se vit en communauté : culte, petits groupes, service. Une présence régulière et un service simple (accueil, enfants, son) édifient toute l'Église.", "verset": "Hébreux 10:24-25" },
+    { "categorie": "Vie de l'Église", "titre": "Prier pour les responsables", "texte": "Pasteurs, anciens, diacres et enseignants portent de lourdes charges. Prie pour leur santé, leur famille, leur intégrité et leur unité.", "verset": "Hébreux 13:17" },
+    { "categorie": "Vie de l'Église", "titre": "Évangéliser avec respect", "texte": "Témoigner, c'est raconter ce que Christ a fait dans sa vie, avec douceur et sans polémique. Prépare ton témoignage en trois phrases : avant, rencontre avec Jésus, aujourd'hui.", "verset": "1 Pierre 3:15" },
+    { "categorie": "Protection & délivrance", "titre": "S'armer de la Parole et de la prière", "texte": "La victoire de Christ à la croix est complète. Reste soumis à Dieu, résiste au diable avec la Parole, et marche dans la sanctification : confession, pardon, obéissance. Évite toute pratique occulte et tout objet ou rite étranger à l'Évangile.", "verset": "Jacques 4:7" },
+    { "categorie": "Protection & délivrance", "titre": "Veiller sur la maison par la prière", "texte": "Consacre ton foyer au Seigneur : chants, Parole lue à voix haute, prière pour chaque pièce et chaque membre. La paix de Dieu garde les cœurs et les pensées.", "verset": "Josué 24:15" }
+  ]
+}

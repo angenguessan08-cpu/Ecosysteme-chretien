@@ -1,0 +1,7 @@
+-- DEPRECATED — NE PAS EXÉCUTER.
+-- Cette ancienne migration créait une politique RLS permissive USING (true),
+-- qui autorisait l'accès transversal aux fiches synchronisées.
+-- Utiliser exclusivement app/schema_sync_supabase.sql, qui supprime l'ancienne
+-- politique ouverte et impose user_id = auth.uid() pour les utilisateurs authentifiés.
+-- Si l'ancienne politique a déjà été appliquée, le schéma de synchronisation
+-- actuel la supprime avec DROP POLICY IF EXISTS.

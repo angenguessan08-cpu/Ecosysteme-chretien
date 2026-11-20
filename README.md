@@ -1,4 +1,4 @@
-<p align="center"><img src="icons/banner.png" alt="Écosystème Chrétien — Portail Biblique & Spirituel" width="640"></p>
+<p align="center"><img src="app/icons/banner.png" alt="Écosystème Chrétien — Portail Biblique & Spirituel" width="640"></p>
 
 # Écosystème Chrétien — Portail Biblique & Spirituel
 

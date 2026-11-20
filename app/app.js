@@ -10,6 +10,10 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
 };
 const K = { S: 'ec5_settings', P: 'ec5_progress', N: 'ec5_notes', C: 'ec5_cards', Y: 'ec5_sync', R: 'ec5_restore', E: 'ec5_people', A: 'ec5_news' };
+// Mode administrateur : le bouton « Sync Local & Cloud » n'apparaît que sur l'appareil où l'on a ouvert l'app avec ?admin=1 (retrait : ?admin=0).
+const ADMIN_KEY = 'ec5_admin';
+try { const a = new URLSearchParams(location.search).get('admin'); if (a === '1') localStorage.setItem(ADMIN_KEY, '1'); else if (a === '0') localStorage.removeItem(ADMIN_KEY); } catch (e) { /* stockage indisponible */ }
+const isAdmin = () => { try { return localStorage.getItem(ADMIN_KEY) === '1'; } catch (e) { return false; } };
 const uid = () => (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'id-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
 const SPACES = ['P1', 'P4', 'P5', 'P2', 'P3'];
 const isP = sp => sp === 'P2' || sp === 'P5';
@@ -191,6 +195,7 @@ function navHTML() {
   <button class="nv" data-act="registre"><span>Registre de prière</span><em id="nb-people" class="${peopleOf().length ? 'warn' : ''}">${peopleOf().length}</em></button>
   <button class="nv" data-act="guide"><span>Guide d'utilisation</span></button>
   <button class="nv" data-act="about"><span>À propos &amp; Contact</span></button>
+  ${isAdmin() ? '<button class="nv" data-act="open-sync"><span>☁ Sync Local &amp; Cloud</span></button>' : ''}
   <div class="store" id="store">${storeHTML()}</div><div class="about"><b>Version 7.0</b> · Louis Segond 1910<br>Stockage local ; synchronisation cloud facultative · fonctionne hors-ligne</div>`;
 }
 function bottomHTML() {
@@ -1150,7 +1155,7 @@ document.addEventListener('click', e => {
     case 'newcard': openModal(cardForm(null, S.space)); break;
     case 'editcard': openModal(cardForm(CARDS.find(c => c.id === el.dataset.id), S.space)); break;
     case 'delcard': if (confirm('Supprimer cette fiche ?')) { const c = CARDS.find(x => x.id === el.dataset.id); c.del = true; c.updated = Date.now(); saveC(); touch(); closeModal(); renderFilters(); renderList(); } break;
-    case 'open-sync': openSync(); break;
+    case 'open-sync': document.body.classList.remove('menu'); openSync(); break;
     case 'sync-now': syncNow(true); break;
     case 'sb-save': { const nu = $('#sb-url').value.trim(), nk = $('#sb-key').value.trim(); if (isSecretKey(nk)) { toast('Clé refusée : une clé « service_role » / secrète ne doit jamais être saisie ici. Utilise la clé « anon » publique.'); break; } if (nu !== SY.url || nk !== SY.key) SY.auth = null; SY.url = nu; SY.key = nk; } saveY(); setStatus('none'); syncNow(true); break;
     case 'sb-in': authEmail(false); break;
